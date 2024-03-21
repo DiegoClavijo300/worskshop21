@@ -1,0 +1,12 @@
+.event {
+    border: 1px solid black;
+    background-color: antiquewhite;
+    margin: 5px;
+}
+#event .description {
+    font-style: italic;
+}
+#event .location{
+    font-size: 10px;
+    font-weight: bold;
+}
