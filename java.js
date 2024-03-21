@@ -109,6 +109,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.error(err);
         }
     })
-});
 
-// add event listener to button
+    // add event listener to button
+    //const removing= await deleteEvent();
+
+});
