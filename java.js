@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         addEventScreen(event);
     });
     const form = document.getElementById('eventForm');
+    //add event listener to form
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -102,7 +103,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         try {
             const newEvent = await createEvent(addedEvent);
-            // add the new recipe to the screen
+            // add the new event to the screen
             addEventScreen(newEvent);
         } catch(err){ 
             console.error(err);
@@ -110,7 +111,4 @@ document.addEventListener('DOMContentLoaded', async () => {
     })
 });
 
-//add event listener to form
-
-
-// add event listener to buttons 
+// add event listener to button
