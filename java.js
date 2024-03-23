@@ -33,7 +33,7 @@ async function createEvent(event) {
 
 // delete event
 async function deleteEvent(id) {
-    const response = await fetch(`${baseURL}/events${id}`, {
+    const response = await fetch(`${baseURL}/events/${id}`, {
         method: 'delete'
     });
 
@@ -64,14 +64,27 @@ function addEventScreen(event){
     eventLocation.classList.add('location');
     eventLocation.append(event.location);
 
+    const eventId = document.createElement('div')
+    eventId.classList.add('eventId')
+    eventId.append('#'+event.id)
+
     const deleteBtn = document.createElement('button');
     const deleteText = document.createTextNode('delete event');
+    deleteBtn.addEventListener('click', async(event) => {
+        const selectedEvent = event.target.closest('.event')
+        const id = selectedEvent.querySelector('.eventId').innerText.slice(1)
+        //console.log(id)
+        deleteEvent(id)
+        selectedEvent.remove()
+
+    })
     deleteBtn.appendChild(deleteText);
 
     singleEvent.appendChild(eventName);
     singleEvent.appendChild(eventDate);
     singleEvent.appendChild(eventLocation);
     singleEvent.appendChild(eventDesc);
+    singleEvent.appendChild(eventId)
     singleEvent.appendChild(deleteBtn);
     eventDiv.appendChild(singleEvent);
 
